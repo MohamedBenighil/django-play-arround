@@ -1,0 +1,51 @@
+https://www.udemy.com/course/practical-django-launch-your-startup-today/
+=====================================================1
+#create the project
+django-admin startproject <peoject_name>
+cd <project_name>
+
+#create the app
+python manage.py  startapp <app_name>
+cd <app_name> 
+cp ..\counter\urls.py .
+cd ..
+
+#create the folder 
+mkdir templates (html teplates)
+mkdir static (img,css, js )
+//add folders : <app_name>, templates and static to project by editing 
+//counter/settings.py INSTALLED_APPS, TEMPLATES.DIRS and add STATICFILES_DIRS = ['statics']
+
+# run the server 
+python manage.py runserver 
+=====================================================2
+#display Helloworld
+<app_name> -> urls.py : add url with coresponding function 
+<app_name> -> views.py : function to return html
+<app_name> -> teplates : html file
+<project_name> -> urls.py : include <app_name>.urls
+
+#display HelloStudens
+avoid repetition : base.html , use {%block contnent%}...{%endblock%} , {% extends 'base.html'%}
+
+=====================================================3
+#pass python variable to html template
+remove HelloStudent
+<app_name> -> views.py : add var name , add dict context = {'name': name}, 
+<app_name> -> templates -> Helloworld.html : add context's key 
+
+=====================================================4
+- google: getboostrap and add it to 'base.html'  
+- create 3 buttons <a>: increment decrement or reset on templates: helloworld.html
+- each button has url (href)
+- each url has function : urls.py
+- each function defined in : views.py
+- when you increment, you should REDIRECT (AND NOT RENDER) to helloworld.html
+
+- to create db table , create class : model.py 
+python manage.py makemigrations => create table <model_name>
+python3 manage.py migrate  => apply migration
+
+
+open sqlite reader and create a new connection 
+
